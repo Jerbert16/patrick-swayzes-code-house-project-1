@@ -1,8 +1,9 @@
 # Amateur Stargazer
-Daily Task Manager
+Stargazing App made easy for the everyday amateur Stargazer. 
 
 ## Description
-A simply designed task manager application that allows a user to input and save tasks or appointments for every hour of their business day. For user-friendly readability, the present time displays red, while all future ahead are shown in green, and any hour blocks that have past, are subtly taken out of the user's focus using a grey background.  
+Words words words words.
+*Location permissions may be required.
 
 ## User Story
 As an amateur stargazer, I want to know from my vantage point on Earth what constellations I can see on a clear and dark night so that I can enjoy a cool evening outside and make memories with my family.
@@ -17,7 +18,7 @@ THEN..
 ## Built With
 * HTML
 * CSS
-* javaScript/jQuery
+* javaScript
 
 ## Link to Repo
 https://github.com/Jerbert16/patrick-swayzes-code-house-project-1
