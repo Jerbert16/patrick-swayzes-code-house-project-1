@@ -1,3 +1,6 @@
+ var displayNames=document.querySelector('.content')
+ var displayImage=document.querySelector('.notification')
+
 // based on the given app id and app Secret we generate a hash for authorization
 //refere to https://docs.astronomyapi.com/#sample-curl-request
 var applicationId = "530a1429-db0d-4587-adb1-ded19a7d404d";
@@ -16,7 +19,19 @@ fetch(baseurlPositions, {
   },
 })
   .then((response) => response.json())
-  .then((data) => console.log("position End Point", data.data));
+  .then((data)=>  {
+    var PlanetNames= data.data.table.rows;
+    for(let elem of PlanetNames){
+        var listEL=document.createElement('li')
+        listEL.textContent=elem.entry.name;
+        displayNames.appendChild(listEL)
+        console.log(elem.entry.name)
+        
+    }
+    
+console.log(PlanetNames)
+});
+
 
 //example tow getting moon image  from moon-phase endpoint and  style ,obserever,view query parameters are given as object
   const baseUrlmoonPhase ="https://api.astronomyapi.com/api/v2/studio/moon-phase";
@@ -43,4 +58,11 @@ fetch(baseUrlmoonPhase,{
   },
 })
   .then((response) => response.json())
-  .then((data) => console.log(data.data));
+  .then((data) => {
+    var imageSrc=data.data.imageUrl
+    var imgHolder=document.createElement('img')
+    imgHolder.setAttribute('src',imageSrc);
+    displayImage.appendChild(imgHolder);
+
+    }
+    );
