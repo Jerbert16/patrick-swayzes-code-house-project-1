@@ -1,5 +1,5 @@
- var displayNames=document.querySelector('.content')
- var displayImage=document.querySelector('.notification')
+var displayNames = document.querySelector(".content");
+var displayImage = document.querySelector(".notification");
 
 // based on the given app id and app Secret we generate a hash for authorization
 //refere to https://docs.astronomyapi.com/#sample-curl-request
@@ -12,29 +12,28 @@ var baseurlPositions =
 //the other end points are Star Charts,Moon Phase.search
 const hash = btoa(`${applicationId}:${applicationSecret}`);
 //example one using Planetary Positions endpoint
-console.log(hash)
+
 fetch(baseurlPositions, {
   headers: {
     Authorization: `Basic ${hash}`,
   },
 })
   .then((response) => response.json())
-  .then((data)=>  {
-    var PlanetNames= data.data.table.rows;
-    for(let elem of PlanetNames){
-        var listEL=document.createElement('li')
-        listEL.textContent=elem.entry.name;
-        displayNames.appendChild(listEL)
-        console.log(elem.entry.name)
-        
+  .then((data) => {
+    var PlanetNames = data.data.table.rows;
+    for (let elem of PlanetNames) {
+      var listEL = document.createElement("li");
+      listEL.textContent = elem.entry.name;
+      displayNames.appendChild(listEL);
+      console.log(elem.entry.name);
     }
-    
-console.log(PlanetNames)
-});
 
+    console.log(PlanetNames);
+  });
 
 //example tow getting moon image  from moon-phase endpoint and  style ,obserever,view query parameters are given as object
-  const baseUrlmoonPhase ="https://api.astronomyapi.com/api/v2/studio/moon-phase";
+const baseUrlmoonPhase =
+  "https://api.astronomyapi.com/api/v2/studio/moon-phase";
 let mydata = {
   style: {
     moonStyle: "default",
@@ -47,22 +46,54 @@ let mydata = {
   view: { type: "landscape-simple" },
 };
 
+fetch(baseUrlmoonPhase, {
+  method: "POST",
+  body: JSON.stringify(mydata),
 
-fetch(baseUrlmoonPhase,{
-    method: 'POST',
-    body:JSON.stringify(mydata),
-   
-   headers: {
-    
+  headers: {
     Authorization: `Basic ${hash}`,
   },
 })
   .then((response) => response.json())
   .then((data) => {
-    var imageSrc=data.data.imageUrl
-    var imgHolder=document.createElement('img')
-    imgHolder.setAttribute('src',imageSrc);
+    var imageSrc = data.data.imageUrl;
+    var imgHolder = document.createElement("img");
+    imgHolder.setAttribute("src", imageSrc);
     displayImage.appendChild(imgHolder);
+  });
+//example theree getting moon image  from star-chart endpoint and  style ,obserever,view query parameters are given as object
+const baseUrlStarChart =
+  "https://api.astronomyapi.com/api/v2/studio/star-chart";
+let mydatatwo = {
+  style: "inverted",
+  observer: { latitude: 33.775867, longitude: -84.39733, date: "2023-02-04" },
+  view: { type: "constellation", parameters: { constellation: "ori" } },
+};
+fetch(baseUrlStarChart, {
+  method: "POST",
+  body: JSON.stringify(mydatatwo),
 
+  headers: {
+    Authorization: `Basic ${hash}`,
+  },
+})
+  .then((response) => response.json())
+  .then((data) => {
+
+    var imageSrc = data.data.imageUrl;
+    var imgHolder = document.createElement("img");
+    imgHolder.setAttribute("src", imageSrc);
+    displayImage.appendChild(imgHolder);
+  });
+//exmaple four using serach ende pont term and match type are hard coded
+let basUrlSearch = "https://api.astronomyapi.com/api/v2/search?term=polaris&ra=&dec=&match_type=fuzzy";
+
+  fetch(basUrlSearch, {
+    headers: {
+      Authorization: `Basic ${hash}`
     }
-    );
+  })
+    .then((response) => response.json())
+    .then((data) => {
+     console.log(data)
+    })
