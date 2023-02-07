@@ -1,8 +1,24 @@
 var displayNames = document.querySelector(".content");
 var displayImage = document.querySelector(".notification");
-
+var lat;
+var lon;
 // based on the given app id and app Secret we generate a hash for authorization
 //refere to https://docs.astronomyapi.com/#sample-curl-request
+var city=prompt('enter  city')
+
+var baseurlNow =
+  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e741dcb38a3d668e1bd5bc73c1c15c13`;
+
+fetch(baseurlNow)
+  .then((resp) => resp.json())
+  .then((data) => {
+    localStorage.setItem('lat',data.coord.lat)
+    localStorage.setItem('lon',data.coord.lon)
+  
+    console.log(data.coord.lat);
+    console.log(data.coord.lon);
+  });
+
 var applicationId = "530a1429-db0d-4587-adb1-ded19a7d404d";
 var applicationSecret =
   "b61037a5c464044d27334b3dd0f410339546c8ff10ab50eebcce8b488b5439217224c87383070db4a719e49e54f3788da3c23a76362f4e57458eb7155538ab58154b897ef27bffefd7aa5f592237c3f43327b5a8b4c82efca177e8a995816f78c8da59077974d86e840c98de251e9c07";
@@ -25,7 +41,6 @@ fetch(baseurlPositions, {
       var listEL = document.createElement("li");
       listEL.textContent = elem.entry.name;
       displayNames.appendChild(listEL);
-      console.log(elem.entry.name);
     }
 
     console.log(PlanetNames);
@@ -42,7 +57,7 @@ let mydata = {
     headingColor: "#ffffff",
     textColor: "#ffffff",
   },
-  observer: { latitude: 33.775867, longitude: -84.39733, date: "2023-02-04" },
+  observer: { latitude: parseInt(localStorage.getItem("lat")), longitude:parseInt(localStorage.getItem("lon")) , date: "2023-02-04" },
   view: { type: "landscape-simple" },
 };
 
@@ -60,18 +75,28 @@ fetch(baseUrlmoonPhase, {
     var imgHolder = document.createElement("img");
     imgHolder.setAttribute("src", imageSrc);
     displayImage.appendChild(imgHolder);
-  });
+  }).catch((error)=>console.log(error));
 //example theree getting moon image  from star-chart endpoint and  style ,obserever,view query parameters are given as object
 const baseUrlStarChart =
   "https://api.astronomyapi.com/api/v2/studio/star-chart";
 let mydatatwo = {
   style: "inverted",
-  observer: { latitude: 33.775867, longitude: -84.39733, date: "2023-02-04" },
+  observer: { latitude: lat, longitude: lon, date: "2023-02-04" },
   view: { type: "constellation", parameters: { constellation: "ori" } },
 };
+let mydatafour={
+    style: 'inverted',
+    observer: { latitude: parseInt(localStorage.getItem("lat")) , longitude: parseInt(localStorage.getItem("lon")) , date: '2023-02-06' },
+    view: { type: 'area', parameters: { position: {"equatorial": {
+        "rightAscension": 14.83,
+        "declination": -15.23
+    }}, zoom: 6 } }
+  }
+
+
 fetch(baseUrlStarChart, {
   method: "POST",
-  body: JSON.stringify(mydatatwo),
+  body: JSON.stringify(mydatafour),
 
   headers: {
     Authorization: `Basic ${hash}`,
@@ -79,21 +104,24 @@ fetch(baseUrlStarChart, {
 })
   .then((response) => response.json())
   .then((data) => {
-
     var imageSrc = data.data.imageUrl;
     var imgHolder = document.createElement("img");
     imgHolder.setAttribute("src", imageSrc);
     displayImage.appendChild(imgHolder);
   });
 //exmaple four using serach ende pont term and match type are hard coded
-let basUrlSearch = "https://api.astronomyapi.com/api/v2/search?term=polaris&ra=&dec=&match_type=fuzzy";
+let basUrlSearch =
+  "https://api.astronomyapi.com/api/v2/search?term=polaris&ra=&dec=&match_type=fuzzy";
 
-  fetch(basUrlSearch, {
-    headers: {
-      Authorization: `Basic ${hash}`
-    }
-  })
-    .then((response) => response.json())
-    .then((data) => {
-     console.log(data)
-    })
+fetch(basUrlSearch, {
+  headers: {
+    Authorization: `Basic ${hash}`,
+  },
+})
+  .then((response) => response.json())
+  .then((data) => {});
+
+var openWatherApiKey = "87710827a4c6f11401d8a2d244caad74";
+
+//https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
