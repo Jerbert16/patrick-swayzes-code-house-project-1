@@ -1,5 +1,6 @@
-var displayNames = document.querySelector(".content");
-var displayImage = document.querySelector(".notification");
+var displayMoon = document.querySelector("#moon-phase");
+var displayStars = document.querySelector("#star-chart");
+var displayNames = document.querySelector("#planets");
 
 // based on the given app id and app Secret we generate a hash for authorization
 //refere to https://docs.astronomyapi.com/#sample-curl-request
@@ -59,7 +60,7 @@ fetch(baseUrlmoonPhase, {
     var imageSrc = data.data.imageUrl;
     var imgHolder = document.createElement("img");
     imgHolder.setAttribute("src", imageSrc);
-    displayImage.appendChild(imgHolder);
+    displayMoon.appendChild(imgHolder);
   });
 //example theree getting moon image  from star-chart endpoint and  style ,obserever,view query parameters are given as object
 const baseUrlStarChart =
@@ -83,7 +84,7 @@ fetch(baseUrlStarChart, {
     var imageSrc = data.data.imageUrl;
     var imgHolder = document.createElement("img");
     imgHolder.setAttribute("src", imageSrc);
-    displayImage.appendChild(imgHolder);
+    displayStars.appendChild(imgHolder);
   });
 //exmaple four using serach ende pont term and match type are hard coded
 let basUrlSearch = "https://api.astronomyapi.com/api/v2/search?term=polaris&ra=&dec=&match_type=fuzzy";
