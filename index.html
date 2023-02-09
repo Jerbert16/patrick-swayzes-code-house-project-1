@@ -5,41 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Coustard&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Amateur Stargazer</title>
+    <title>Amateur Star Gazer</title>
 </head>
-</div>
+
 
 <body>
-    <header class="container is-max-desktop">
-        <h1 class="is-primary">
-            This container has a <code>max-width</code> of <code>$desktop - $container-offset</code> on widescreen and
-            fullhd.
-        </h1>
-        <nav>
-        </nav>
-    </header>
+    <section class="container hero">
 
-    <main class="container is-fluid flex">
-        <section class="content is-primary">
-            <div>
+        <!-- Title Page -->
+        <div>
+            <header class="header" style="text-align:center">
+                <h3 class="subtitle is-3" style="color: whitesmoke">The everyday app,
+                        for the everyday</h3>
+                <h1 class="title is-1" style="color: whitesmoke">
+                        Star Gazer
+                </h1>
+            </header>
 
+            <div class="column is-6
+                is-offset-3">
+                <!-- Location Input Field -->
+                <form class="box">
+                    <!-- user input 'box' -->
+                    <div class="field">
+                        <label class="label">Center of the Universe:</label>
+                        <div class="control">
+                            <input class="input" type="text" value="" placeholder="Ex. Denver, CO"
+                                aria-label="city-search">
+                            <!-- <p class="help is-danger">Please enter a valid location.</p> -->
+
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="control">
+                        <button id="button" class="button is-link is-rounded" type="submit" value="Submit input"
+                            aria-label="submit">Start Gazing
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="hero-img" aria-label="cosmic-img"></div>
+    </section>
+
+    <main class="columns is-centered">
+
+        <section class="column is-8">
+            <div class="DatePicker">
+                <label for="meeting-time">Choose a time for your appointment:</label>
+
+<input type="date" id="meeting-time"
+       name="meeting-time"
+       >
+            </div>
+            <div class="content">
+                <div class="img-container">
+                    <figure id="star-chart" class="image" aria-label="star-chart"></figure>
+                </div>
+                <div class="img-container">
+                    <figure id="moon-phase" class="image" aria-label="moon-phase"></figure>
+
+                </div>
             </div>
         </section>
-        <aside class="notification is-primary flex">
-            This container is <strong>fluid</strong>: it will have a 32px gap on either side, on any
-            viewport size.
-        </aside>
 
+        <aside class="column is-4">
+            <div id="planets" aria-label="planets"></div>
+        </aside>
+        </div>
     </main>
 
-    <footer class="is-primary">
+    <footer class="footer" style="color:whitesmoke; text-align:center">
         <p>&copy;2023 Patrick Swayze's Code House</p>
     </footer>
-    
+
+    <script src="https://kit.fontawesome.com/0d4d70a297.js" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 

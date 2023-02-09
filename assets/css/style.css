@@ -1,0 +1,18 @@
+/* * {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
+
+.hero,
+.footer {
+    background-color: midnightblue;
+}
+
+.header,
+.footer {
+    font-family: 'Codystar', cursive;
+    padding: 30px;
+}
+
+.button {
+    font-family: 'Coustard', serif;
+}
