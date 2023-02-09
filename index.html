@@ -40,6 +40,7 @@
                             <input class="input" type="text" value="" placeholder="Ex. Denver, CO"
                                 aria-label="city-search">
                             <!-- <p class="help is-danger">Please enter a valid location.</p> -->
+
                         </div>
                     </div>
                     <!-- Submit Button -->
@@ -55,13 +56,22 @@
     </section>
 
     <main class="columns is-centered">
+
         <section class="column is-8">
+            <div class="DatePicker">
+                <label for="meeting-time">Choose a time for your appointment:</label>
+
+<input type="date" id="meeting-time"
+       name="meeting-time"
+       >
+            </div>
             <div class="content">
                 <div class="img-container">
                     <figure id="star-chart" class="image" aria-label="star-chart"></figure>
                 </div>
                 <div class="img-container">
                     <figure id="moon-phase" class="image" aria-label="moon-phase"></figure>
+
                 </div>
             </div>
         </section>

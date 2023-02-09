@@ -1,7 +1,12 @@
 var displayMoon = document.querySelector("#moon-phase");
 var displayStars = document.querySelector("#star-chart");
 var displayNames = document.querySelector("#planets");
-
+var btnEl=document.getElementById('button')
+var dateEL=document.getElementById('')
+btnEl.addEventListener('click',(e)=>{
+  e.preventDefault()
+  console.log("test")
+})
 // based on the given app id and app Secret we generate a hash for authorization
 //refere to https://docs.astronomyapi.com/#sample-curl-request
 var applicationId = "530a1429-db0d-4587-adb1-ded19a7d404d";
