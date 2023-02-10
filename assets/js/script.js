@@ -8,8 +8,20 @@ var lat;
 var lon;
 btnEl.addEventListener('click',(e)=>{
   e.preventDefault()
-  console.log(dateEL.value)
-  console.log(cityInput.value)
+  var baseurlNow = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=e741dcb38a3d668e1bd5bc73c1c15c13`;
+
+fetch(baseurlNow)
+  .then((resp) => resp.json())
+  .then((data) => {
+    console.log(data)
+    if(data){
+      localStorage.setItem('lat',data.coord.lat)
+      localStorage.setItem('lon',data.coord.lon)
+    }
+
+  
+   
+  });
 
   const baseUrlStarChart =
   "https://api.astronomyapi.com/api/v2/studio/star-chart";
@@ -71,22 +83,9 @@ fetch(baseUrlmoonPhase, {
     displayMoon.appendChild(imgHolder);
   }).catch((error)=>console.log(error));
 })
-// based on the given app id and app Secret we generate a hash for authorization
-//refere to https://docs.astronomyapi.com/#sample-curl-request
-//var city=prompt('enter  city')
 
-var baseurlNow =
-  `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=e741dcb38a3d668e1bd5bc73c1c15c13`;
 
-fetch(baseurlNow)
-  .then((resp) => resp.json())
-  .then((data) => {
-    localStorage.setItem('lat',data.coord.lat)
-    localStorage.setItem('lon',data.coord.lon)
-  
-    console.log(data.coord.lat);
-    console.log(data.coord.lon);
-  });
+
 
 var applicationId = "530a1429-db0d-4587-adb1-ded19a7d404d";
 var applicationSecret =
@@ -119,19 +118,19 @@ fetch(baseurlPositions, {
 
 //example theree getting moon image  from star-chart endpoint and  style ,obserever,view query parameters are given as object
 
-//exmaple four using serach ende pont term and match type are hard coded
-let basUrlSearch =
-  "https://api.astronomyapi.com/api/v2/search?term=polaris&ra=&dec=&match_type=fuzzy";
+// //exmaple four using serach ende pont term and match type are hard coded
+// let basUrlSearch =
+//   "https://api.astronomyapi.com/api/v2/search?term=polaris&ra=&dec=&match_type=fuzzy";
 
-fetch(basUrlSearch, {
-  headers: {
-    Authorization: `Basic ${hash}`,
-  },
-})
-  .then((response) => response.json())
-  .then((data) => {});
+// fetch(basUrlSearch, {
+//   headers: {
+//     Authorization: `Basic ${hash}`,
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((data) => {});
 
-var openWatherApiKey = "87710827a4c6f11401d8a2d244caad74";
+// var openWatherApiKey = "87710827a4c6f11401d8a2d244caad74";
 
 //https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
