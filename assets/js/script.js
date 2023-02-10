@@ -44,7 +44,7 @@ function runProgram(e) {
 
       //takes data frome baseurlNow data array and displays weather info - see below:
       weatherIcon.src =
-        "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+        "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
       weatherDes.textContent = "Conditions: " + data.weather[0].description;
       temp.textContent = "Temp: " + data.main.temp + "°F";
       humidity.textContent = "Humidity: " + data.main.humidity + "%";
