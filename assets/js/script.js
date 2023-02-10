@@ -76,9 +76,9 @@ fetch(baseUrlmoonPhase, {
 //var city=prompt('enter  city')
 
 var baseurlNow =
-  `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=e741dcb38a3d668e1bd5bc73c1c15c13`;
+'https://api.openweathermap.org/geo/1.0/direct?q=${cityInput.value}&limit=1&appid=e741dcb38a3d668e1bd5bc73c1c15c13';
 
-fetch(baseurlNow)
+fetch(baseurlNow) 
   .then((resp) => resp.json())
   .then((data) => {
     localStorage.setItem('lat',data.coord.lat)
@@ -131,7 +131,6 @@ fetch(basUrlSearch, {
   .then((response) => response.json())
   .then((data) => {});
 
-var openWatherApiKey = "87710827a4c6f11401d8a2d244caad74";
+var openWatherApiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
 
 //https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
