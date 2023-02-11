@@ -37,8 +37,7 @@ THEN the app renders an accurate depiction of the stars in the sky from that van
 https://github.com/Jerbert16/patrick-swayzes-code-house-project-1
 
 ## Link to Deployed Site
-Coming soon!
-<!-- *WILL ADD* -->
+https://jerbert16.github.io/patrick-swayzes-code-house-project-1/
 
 ## Link to Slides
 https://docs.google.com/presentation/d/1lOCuRJrrux5H54gznAwg7oI8nbYvFmZcBvH6erUCR3M/edit?usp=sharing
