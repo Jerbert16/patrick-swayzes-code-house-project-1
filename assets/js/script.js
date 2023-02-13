@@ -88,10 +88,10 @@ btnEl.addEventListener('click', (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      // displayStars.innerHTML = '';
       var imageSrc = data.data.imageUrl;
       var imgHolder = document.createElement("img");
       imgHolder.setAttribute("src", imageSrc);
-      displayStars.innerHTML = ''
       displayStars.appendChild(imgHolder);
     });
   const baseUrlmoonPhase =
@@ -121,7 +121,7 @@ btnEl.addEventListener('click', (e) => {
       var imageSrc = data.data.imageUrl;
       var imgHolder = document.createElement("img");
       imgHolder.setAttribute("src", imageSrc);
-      displayMoon.innerHTML = ''
+      displayMoon.innerHTML = '';
       displayMoon.appendChild(imgHolder);
     }).catch((error) => console.log(error));
 })

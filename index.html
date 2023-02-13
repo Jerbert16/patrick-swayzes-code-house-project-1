@@ -21,67 +21,47 @@
 </head>
 
 
-<body class="container is-max-widescreen">
-
-
-    <header id="search-header" class="header flex">
-        <nav class="columns level">
-
+<body class="container">
+    <!-- is-max-widescreen -->
+    
+    <header id="search-header" class="header">
+        <nav class="level">
+            
             <!-- class="grid" -->
-            <navbar class="is-paddingless-horizontal"></navbar>
+            <navbar style="background-color: aliceblue;" class="is-paddingless-horizontal">Navbar</navbar>
         </nav>
     </header>
-
-
+    
+    
     <!-- === Hero Content : Background Img === -->
     <div class="hero is-fullheight" style="background: url(assets/images/Space-Background.jpg) left center / cover;">
-
+        
         <main class="hero-body">
-
+            
             <!-- === Welcome Content === -->
-            <section class="content container is-three-fifths">
-                <div id="intro" class="column">
-                    <h3 class="welcome-message"> Welcome to the Everyday Stargazer web app. </h3>
-
-                    <div class="block">
-                        <p>Since antiquity, human beings have been looking up at the night sky and indulging their sense
-                            of wonder. Now, with our Everyday Stargazer web application, you too can entertain your own
-                            celestial curiosities.</p>
-                    </div>
-
-                    <div class="block">
-                        <p>The Everyday Stargazer makes it simple to get a map of the night sky. All you have to do is
-                            enter the name of your city, then select the date you wish to go stargazing and voila –
-                            you’ll be presented with current weather conditions and a star chart of your local night
-                            sky. Ready? Let’s gaze.</p>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- === Main Content Container === -->
-            <section class="container">
-                <aside class="content">
-
-                    <!-- === Date Picker === -->
-                    <div class="date-picker">
-                        <label for="meeting-time" class="label">Search a special night:</label>
-                        <input type="date" id="meeting-time" name="meeting-time">
-                    </div>
-                    <!-- === Submit Button === -->
-                    <div class="">
-                        <button id="button" class="button btn-again is-large" type="submit" value="Submit input"
-                            aria-label="submit"><strong class="label">Reach for more stars</strong>
-                        </button>
-                    </div>
-
-                    <div class="form control">
-                        <form class="field control">
-                            <label class="label control ">Gaze another sky:</label>
-                            <input class="input control" type="text" value="" id="cityInput"
-                                placeholder="Denver, CO" aria-label="city-search">
-                            <p class="help is-danger"></p>
-                        </form>
+            <section class="content container is-three-fifths" style="background-color: aqua;">
+                <aside class="content" style="border: 3px dotted lime">
+                    <div class="form box">
+                        <!-- === Date Picker === -->
+                        <div class="date-picker">
+                            <label for="meeting-time" class="label">Search a special night:</label>
+                            <input type="date" id="meeting-time" name="meeting-time">
+                        </div>
+                        <!-- === Submit Button === -->
+                        <div class="">
+                            <button id="button" class="button btn-again is-large" type="submit" value="Submit input"
+                                aria-label="submit"><strong class="label">Reach for more stars</strong>
+                            </button>
+                        </div>
+            
+                        <div class="form control">
+                            <form class="field control">
+                                <label class="label control ">Gaze another sky:</label>
+                                <input class="input control" type="text" value="" id="cityInput"
+                                    placeholder="Denver, CO" aria-label="city-search">
+                                <p class="help is-danger"></p>
+                            </form>
+                        </div>
                     </div>
                     <div class="img-container">
                         <figure id="moon-phase" class="image is-128x128" aria-label="moon-phase">
@@ -91,9 +71,30 @@
                         </figure>
                     </div>
                 </aside>
+            </section>
+            
+            <section class="container" style="background-color: blueviolet;">
+                <div id="intro" class="" style="border:dotted 3px hotpink">
+                    <h3 class="welcome-message"> Welcome to the Everyday Stargazer web app. </h3>
+                    
+                    <div class="block">
+                        <p>Since antiquity, human beings have been looking up at the night sky and indulging their sense
+                            of wonder. Now, with our Everyday Stargazer web application, you too can entertain your own
+                            celestial curiosities.</p>
+                        </div>
+                        
+                        <div class="block">
+                            <p>The Everyday Stargazer makes it simple to get a map of the night sky. All you have to do is
+                                enter the name of your city, then select the date you wish to go stargazing and voila –
+                                you’ll be presented with current weather conditions and a star chart of your local night
+                                sky. Ready? Let’s gaze.</p>
+                            </div>
+                            
+                        </div>
+            <!-- === Main Content Container === -->
 
                 <div class="content">
-                    <div class="img-container">
+                    <div class="img-container" style="border:5px solid red">
                         <figure id="star-chart" class="image level-item" aria-label="star-chart"
                             style="max-width: 512px">
                         </figure>
@@ -103,8 +104,9 @@
                                 imagine yourself looking out from one. Can you find a point of reference? How about a
                                 constellation?</em>
 
-                            If you need a little bit of extra help, please reference this <a href="https://lovethenightsky.com/how-to-read-a-star-chart/"> excellent guide on reading
-                            star charts</a>. Otherwise happy gazing!
+                            If you need a little bit of extra help, please reference this <a
+                                href="https://lovethenightsky.com/how-to-read-a-star-chart/"> excellent guide on reading
+                                star charts</a>. Otherwise happy gazing!
                         </figcaption>
                     </div>
                 </div>
