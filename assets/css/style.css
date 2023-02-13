@@ -1,18 +1,53 @@
-/* * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-} */
-
-.hero,
-.footer {
-    background-color: midnightblue;
+main {
+    font-family: 'Coustard', serif;
+    color: whitesmoke;
 }
 
 .header,
-.footer {
+.footer,
+.button {
     font-family: 'Codystar', cursive;
-    padding: 30px;
+    padding: 10px;
+    font-weight: 600
 }
 
-.button {
-    font-family: 'Coustard', serif;
+#search-header {
+    /* display: grid; */
+    /* grid-template-columns:
+    /* flex:auto; */
+
+    /* justify-content:space-around;
+    align-items: center;  */
+    height: 25vmin;
+    font-size: 2rem;
+    background-color: midnightblue;
+    /* border-bottom: ; */
+}
+
+
+
+#homepage-modal.container {
+    background-color: hsl(240, 64%, 27%, 95%);
+    border-radius: 5%;
+    padding: 20px;
+    border: 5px outset whitesmoke;
+}
+
+.btn-again {
+    background-color: hsl(51, 100%, 50%);
+    font-weight: bolder;
+    font-size: large;
+    flex-grow: 4;
+    border: 3px dotted whitesmoke;
+}
+
+#planet-list {
+    list-style: none;
+}
+
+.footer {
+    background-color: transparent;
+    bottom: 0;
+    margin-left: 0;
+    font-weight: bold;
 }

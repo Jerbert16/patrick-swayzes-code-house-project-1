@@ -5,86 +5,131 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amateur Star Gazer</title>
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> -->
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Coustard&display=swap" rel="stylesheet">
+    <!-- === Bulma Links ===  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <!-- === font awesome icons === -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Amateur Star Gazer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Coustard&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./assets/css/debug.css"> -->
 </head>
 
 
-<body>
-    <section class="container hero">
+<body class="container is-max-widescreen">
 
-        <!-- Title Page -->
-        <div>
-            <header class="header" style="text-align:center">
-                <h3 class="subtitle is-3" style="color: whitesmoke">The everyday app,
-                        for the everyday</h3>
-                <h1 class="title is-1" style="color: whitesmoke">
-                        Star Gazer
-                </h1>
-            </header>
 
-            <div class="column is-6
-                is-offset-3">
-                <!-- Location Input Field -->
-                <form class="box">
-                    <!-- user input 'box' -->
-                    <div class="field">
-                        <label class="label">Center of the Universe:</label>
-                        <div class="control">
-                            <input class="input" type="text" value="" id="cityInput"  placeholder="Ex. Denver, CO"
-                                aria-label="city-search">
-                             <p class="help is-danger"></p>
+    <header id="search-header" class="header flex">
+        <nav class="columns level">
 
-                        </div>
+            <!-- class="grid" -->
+            <navbar class="is-paddingless-horizontal"></navbar>
+        </nav>
+    </header>
+
+
+    <!-- === Hero Content : Background Img === -->
+    <div class="hero is-fullheight" style="background: url(assets/images/Space-Background.jpg) left center / cover;">
+
+        <main class="hero-body">
+
+            <!-- === Welcome Content === -->
+            <section class="content container is-three-fifths">
+                <div id="intro" class="column">
+                    <h3 class="welcome-message"> Welcome to the Everyday Stargazer web app. </h3>
+
+                    <div class="block">
+                        <p>Since antiquity, human beings have been looking up at the night sky and indulging their sense
+                            of wonder. Now, with our Everyday Stargazer web application, you too can entertain your own
+                            celestial curiosities.</p>
                     </div>
-                    <!-- Submit Button -->
-                    <div class="control">
-                        <button id="button" class="button is-link is-rounded" type="submit" value="Submit input"
-                            aria-label="submit">Start Gazing
+
+                    <div class="block">
+                        <p>The Everyday Stargazer makes it simple to get a map of the night sky. All you have to do is
+                            enter the name of your city, then select the date you wish to go stargazing and voila –
+                            you’ll be presented with current weather conditions and a star chart of your local night
+                            sky. Ready? Let’s gaze.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- === Main Content Container === -->
+            <section class="container">
+                <aside class="content">
+
+                    <!-- === Date Picker === -->
+                    <div class="date-picker">
+                        <label for="meeting-time" class="label">Search a special night:</label>
+                        <input type="date" id="meeting-time" name="meeting-time">
+                    </div>
+                    <!-- === Submit Button === -->
+                    <div class="">
+                        <button id="button" class="button btn-again is-large" type="submit" value="Submit input"
+                            aria-label="submit"><strong class="label">Reach for more stars</strong>
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="hero-img" aria-label="cosmic-img"></div>
-    </section>
 
-    <main class="columns is-centered">
+                    <div class="form control">
+                        <form class="field control">
+                            <label class="label control ">Gaze another sky:</label>
+                            <input class="input control" type="text" value="" id="cityInput"
+                                placeholder="Denver, CO" aria-label="city-search">
+                            <p class="help is-danger"></p>
+                        </form>
+                    </div>
+                    <div class="img-container">
+                        <figure id="moon-phase" class="image is-128x128" aria-label="moon-phase">
+                            <figcaption id="moon-caption" class="content caption">
+                                <em><strong>Figure 1:</strong> Your Local Moon Phase</em>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </aside>
 
-        <section class="column is-8">
-            <div class="DatePicker">
-                <label for="meeting-time">Choose a time for your appointment:</label>
+                <div class="content">
+                    <div class="img-container">
+                        <figure id="star-chart" class="image level-item" aria-label="star-chart"
+                            style="max-width: 512px">
+                        </figure>
+                        <figcaption id="chart-caption" class="stars content">
+                            <em><strong>Your Local Star Chart:</strong> Not entirely sure what you’re looking at? A star
+                                chart is simply a map of the night sky. However, instead of looking down upon a sphere
+                                imagine yourself looking out from one. Can you find a point of reference? How about a
+                                constellation?</em>
 
-<input type="date" id="meeting-time"
-       name="meeting-time"
-       >
-            </div>
-            <div class="content">
-                <div class="img-container">
-                    <figure id="star-chart" class="image" aria-label="star-chart"></figure>
+                            If you need a little bit of extra help, please reference this <a href="https://lovethenightsky.com/how-to-read-a-star-chart/"> excellent guide on reading
+                            star charts</a>. Otherwise happy gazing!
+                        </figcaption>
+                    </div>
                 </div>
-                <div class="img-container">
-                    <figure id="moon-phase" class="image" aria-label="moon-phase"></figure>
+            </section>
 
+            <!-- === Planetary Side-piece Article === -->
+            <article class="notification is-warning">
+                <h4 class="planet-names">Planets!</h4>
+                <h5 class="planet-pun">They're out of this world!</h5>
+                <div class="content is-small list-group">
+                    <ul id="planet-list" aria-label="planets"></ul>
                 </div>
-            </div>
-        </section>
+            </article>
 
-        <aside class="column is-4">
-            <div id="planets" aria-label="planets"></div>
-        </aside>
-        </div>
-    </main>
 
-    <footer class="footer" style="color:whitesmoke; text-align:center">
-        <p>&copy;2023 Patrick Swayze's Code House</p>
-    </footer>
+        </main>
+
+
+        <!-- === transparent footer === -->
+        <footer class="footer">
+            <p>&copy;2023 Patrick Swayze's Code House</p>
+        </footer>
+
+        <!-- === Hero Image Ends === -->
+    </div>
 
     <script src="https://kit.fontawesome.com/0d4d70a297.js" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
