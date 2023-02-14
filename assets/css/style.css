@@ -2,6 +2,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 } */
 
+
 .hero,
 .footer {
     background-color: midnightblue;
@@ -16,3 +17,13 @@
 .button {
     font-family: 'Coustard', serif;
 }
+
+#bg-img {
+    background-image: url("https://www.krqe.com/wp-content/uploads/sites/12/2022/09/AdobeStock_365693168.jpeg?w=2560&h=1440&crop=1");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #0a0a0a;
+}
+

@@ -6,6 +6,7 @@ var cityInput = document.getElementById("cityInput");
 var dateEL = document.getElementById("meeting-time");
 var errDisplay = document.querySelector(".help");
 
+var currentWthr = document.querySelector("#current");
 var weatherIcon = document.querySelector("#weatherIcon");
 var weatherDes = document.querySelector("#description");
 var wind = document.querySelector("#wind");
@@ -43,6 +44,7 @@ function runProgram(e) {
       lon = data.coord.lon;
 
       //takes data frome baseurlNow data array and displays weather info - see below:
+      currentWthr.textContent = "Current Weather:";
       weatherIcon.src =
         "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
       weatherDes.textContent = "Conditions: " + data.weather[0].description;
@@ -88,7 +90,7 @@ function runProgram(e) {
       var imageSrc = data.data.imageUrl;
       var imgHolder = document.createElement("img");
       imgHolder.setAttribute("src", imageSrc);
-      displayStars.innerHTML = "";
+      displayStars.innerHTML = "YOUR CURRENT NIGHT SKY (STAR CHART):";
       displayStars.appendChild(imgHolder);
     });
   const baseUrlmoonPhase =
