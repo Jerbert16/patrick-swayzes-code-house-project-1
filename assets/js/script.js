@@ -11,12 +11,22 @@ var applicationId = "530a1429-db0d-4587-adb1-ded19a7d404d";
 var applicationSecret =
   "b61037a5c464044d27334b3dd0f410339546c8ff10ab50eebcce8b488b5439217224c87383070db4a719e49e54f3788da3c23a76362f4e57458eb7155538ab58154b897ef27bffefd7aa5f592237c3f43327b5a8b4c82efca177e8a995816f78c8da59077974d86e840c98de251e9c07";
 
+  cityInput.value = localStorage.getItem("city");
+
 btnEl.addEventListener('click', (e) => {
   e.preventDefault()
-  if (!(cityInput.value && dateEL.value)) {
-    errDisplay.textContent = 'City and date requred';
 
+  if (!(cityInput.value)) {
+    errDisplay.textContent = "City required!";
+    setTimeout(() => {
+      errDisplay.textContent = "";
+    }, 750);
+    return;
   }
+
+  window.location.href = "index.html";
+
+  localStorage.setItem("city", cityInput.value);
   const hash = btoa(`${applicationId}:${applicationSecret}`);
   var baseurlPositions =
     `https://api.astronomyapi.com/api/v2/bodies/positions?longitude=${parseInt(localStorage.getItem("lon"))}&latitude=${parseInt(localStorage.getItem("lat"))}&elevation=1&from_date=${dateEL.value}&to_date=${dateEL.value}&time=05%3A51%3A49`;
