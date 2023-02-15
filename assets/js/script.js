@@ -21,7 +21,7 @@ cityInput.value = localStorage.getItem("city");
 
 function runProgram(e) {
   e.preventDefault();
-  
+
   if (!(cityInput.value && dateEL.value)) {
     errDisplay.textContent = "Both city and date required!";
     setTimeout(() => {
@@ -182,4 +182,3 @@ btnEl.addEventListener("click", runProgram);
 // var openWatherApiKey = "87710827a4c6f11401d8a2d244caad74";
 
 //https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
