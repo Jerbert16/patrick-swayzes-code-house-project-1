@@ -1,28 +1,65 @@
-main {
-    font-family: 'Coustard', serif;
-    color: whitesmoke;
+main,
+p * {
+    font-family: 'sans-serif";
+    
 }
 
-.header,
-.footer,
-.button {
+#landing-header{
+    
+    background-color:hsl(0, 0%, 0%, 60%); 
+    text-align: center;
+    padding:4vw;
+}
+
+#sub-header,
+#main-header,
+#copy,
+#welcome,
+#antiquity {
     font-family: 'Codystar', cursive;
     padding: 10px;
-    font-weight: 600
+    font-weight: 400 bold;
+    color: #f5f5f5;
 }
 
-#search-header {
+
+
+/* .image:indeterminate {
+        background: lime;
+      } */
+    /* <progress class="progress is-danger" max="100">30%</progress> */
+    
+    /* .loader {
+        background: linear-gradient(to right, #000000, #ffffff); /* replace with your desired gradient */
+        /* height: 100vh;
+        animation: gradient 2s ease infinite; */ */
+      /* }
+      
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      } */
+      
+
+/* #search-header {
     /* display: grid; */
     /* grid-template-columns:
     /* flex:auto; */
 
     /* justify-content:space-around;
     align-items: center;  */
-    height: 25vmin;
+    /* height: 25vmin;
     font-size: 2rem;
-    background-color: midnightblue;
+    background-color: midnightblue; */
     /* border-bottom: ; */
-}
+
 
 
 
@@ -35,19 +72,15 @@ main {
 
 .btn-again {
     background-color: hsl(51, 100%, 50%);
-    font-weight: bolder;
-    font-size: large;
-    flex-grow: 4;
+    /* font-weight: bolder; */
+    /* font-size: normal; */
+    /* flex-grow: 4; */
     border: 3px dotted whitesmoke;
 }
 
-#planet-list {
-    list-style: none;
-}
 
-.footer {
+#copy { 
     background-color: transparent;
-    bottom: 0;
-    margin-left: 0;
+
     font-weight: bold;
-}
+} 

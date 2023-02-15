@@ -6,55 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amateur Star Gazer</title>
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Coustard&display=swap" rel="stylesheet">
     <!-- === Bulma Links ===  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
     <!-- === font awesome icons === -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Coustard&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="./assets/css/debug.css"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> -->
 </head>
 
 
-<body class="container">
-    <!-- is-max-widescreen -->
-    
-    <header id="search-header" class="header">
-        <nav class="level">
-            
-            <!-- class="grid" -->
-            <navbar style="background-color: aliceblue;" class="is-paddingless-horizontal">Navbar</navbar>
-        </nav>
-    </header>
-    
-    
-    <!-- === Hero Content : Background Img === -->
+<body>
+    <!-- === HERO : Background Img === -->
     <div class="hero is-fullheight" style="background: url(assets/images/Space-Background.jpg) left center / cover;">
-        
-        <main class="hero-body">
-            
-            <!-- === Welcome Content === -->
-            <section class="content container is-three-fifths" style="background-color: aqua;">
-                <aside class="content" style="border: 3px dotted lime">
-                    <div class="form box">
-                        <!-- === Date Picker === -->
-                        <div class="date-picker">
+    <!-- is-max-widescreen -->
+
+    <header id="landing-header" class="header">
+        <h2 id="welcome" class="title is-2 "> Welcome to the Everyday Stargazer web app. </h2>
+
+        <div class="banner container is-fluid" style="background-color: hsl(240, 68%, 19%, 60%)">
+            <div class="block">
+                <p id="antiquity" class="subtitle">Since antiquity, human beings have been looking up at the night sky and indulging
+                    their
+                    sense
+                    of wonder. Now, with our Everyday Stargazer web application, you too can entertain your
+                    own
+                    celestial curiosities.</p>
+            </div>
+    
+            <div class="block">
+                <p id="antiquity" class="subtitle">The Everyday Stargazer makes it simple to get a map of the night sky. All you have
+                    to do
+                    is
+                    enter the name of your city, then select the date you wish to go stargazing and voila –
+                    you’ll be presented with current weather conditions and a star chart of your local night
+                    sky. Ready? Let’s gaze.</p>
+            </div>
+        </div>
+    </header>
+
+
+
+        <!-- === TILE CONTENT === -->
+        <main class="hero-body tile is-ancestor is-12" style="background-color: hsl(0, 0%, 0%, 50%);">
+            <section class="tile">
+
+                <!-- === Left Side Bar Container : Search Form && Moon Phase === -->
+                <div class="tile is-parent is-vertical is-3" style="background-color: aliceblue;">
+
+                    <!-- === Date Picker === -->
+                    <article class="tile is-child">
+                        <div class="block">
                             <label for="meeting-time" class="label">Search a special night:</label>
-                            <input type="date" id="meeting-time" name="meeting-time">
+                            <input type="date" id="meeting-time" name="meeting-time" class="mx-auto">
                         </div>
-                        <!-- === Submit Button === -->
-                        <div class="">
-                            <button id="button" class="button btn-again is-large" type="submit" value="Submit input"
-                                aria-label="submit"><strong class="label">Reach for more stars</strong>
-                            </button>
-                        </div>
-            
-                        <div class="form control">
+                        <div class="block">
                             <form class="field control">
                                 <label class="label control ">Gaze another sky:</label>
                                 <input class="input control" type="text" value="" id="cityInput"
@@ -62,75 +73,85 @@
                                 <p class="help is-danger"></p>
                             </form>
                         </div>
-                    </div>
-                    <div class="img-container">
-                        <figure id="moon-phase" class="image is-128x128" aria-label="moon-phase">
+                        <!-- === Submit Button === -->
+                        <div class="btn-div">
+                            <button id="button" class="button btn-again is-normal" type="submit" value="Submit input"
+                                aria-label="submit"><strong>Reach for more
+                                    stars</strong>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- === MOON PHASE === -->
+                    <article class="tile is-child">
+                        <p class="subtitle"><strong>Moon Phase</strong></p>
+                        <figure id="moon-phase" class="image is-250x250" aria-label="moon-phase">
                             <figcaption id="moon-caption" class="content caption">
                                 <em><strong>Figure 1:</strong> Your Local Moon Phase</em>
                             </figcaption>
                         </figure>
-                    </div>
-                </aside>
-            </section>
-            
-            <section class="container" style="background-color: blueviolet;">
-                <div id="intro" class="" style="border:dotted 3px hotpink">
-                    <h3 class="welcome-message"> Welcome to the Everyday Stargazer web app. </h3>
-                    
-                    <div class="block">
-                        <p>Since antiquity, human beings have been looking up at the night sky and indulging their sense
-                            of wonder. Now, with our Everyday Stargazer web application, you too can entertain your own
-                            celestial curiosities.</p>
-                        </div>
-                        
-                        <div class="block">
-                            <p>The Everyday Stargazer makes it simple to get a map of the night sky. All you have to do is
-                                enter the name of your city, then select the date you wish to go stargazing and voila –
-                                you’ll be presented with current weather conditions and a star chart of your local night
-                                sky. Ready? Let’s gaze.</p>
-                            </div>
-                            
-                        </div>
-            <!-- === Main Content Container === -->
+                    </article>
+                </div>
 
-                <div class="content">
-                    <div class="img-container" style="border:5px solid red">
-                        <figure id="star-chart" class="image level-item" aria-label="star-chart"
-                            style="max-width: 512px">
+                <!-- === Welcome Content === -->
+                <div class="tile is-parent is-vertical is-7">
+
+                    <div class="image-wrapper">
+                        <figure id="star-chart" onload="onImageLoad(this)" class="image level-item"
+                            aria-label="star-chart" style="max-width: 800px">
                         </figure>
-                        <figcaption id="chart-caption" class="stars content">
-                            <em><strong>Your Local Star Chart:</strong> Not entirely sure what you’re looking at? A star
-                                chart is simply a map of the night sky. However, instead of looking down upon a sphere
-                                imagine yourself looking out from one. Can you find a point of reference? How about a
-                                constellation?</em>
-
-                            If you need a little bit of extra help, please reference this <a
-                                href="https://lovethenightsky.com/how-to-read-a-star-chart/"> excellent guide on reading
-                                star charts</a>. Otherwise happy gazing!
-                        </figcaption>
+                        <div class="image-placeholder">
+                        </div>
                     </div>
+
+                    <figcaption id="chart-caption" class="stars content">
+                        <em><strong>Your Local Star Chart:</strong> Not entirely sure what you’re looking at? A
+                            star
+                            chart is simply a map of the night sky. However, instead of looking down upon a
+                            sphere
+                            imagine yourself looking out from one. Can you find a point of reference? How about
+                            a
+                            constellation?</em>
+
+                        If you need a little bit of extra help, please reference this <a
+                            href="https://lovethenightsky.com/how-to-read-a-star-chart/"> excellent guide on
+                            reading
+                            star charts</a>. Otherwise happy gazing!
+                    </figcaption>
                 </div>
-            </section>
-
-            <!-- === Planetary Side-piece Article === -->
-            <article class="notification is-warning">
-                <h4 class="planet-names">Planets!</h4>
-                <h5 class="planet-pun">They're out of this world!</h5>
-                <div class="content is-small list-group">
-                    <ul id="planet-list" aria-label="planets"></ul>
-                </div>
-            </article>
+    </div>
 
 
-        </main>
+
+    <div class="tile is-child is-vertical">
+        <!-- style="border:3px solid lime" -->
+        <!-- === Planetary Side-piece Article === -->
+        <article class="tile is-child notification is-warning">
+            <h4 class="planet-names">Planets!</h4>
+            <h5 class="planet-pun">They're out of this world!</h5>
+            <div class="content is-small list-group">
+                <ul id="planet-list" aria-label="planets"></ul>
+            </div>
+        </article>
+    </div>
+    </section>
 
 
-        <!-- === transparent footer === -->
-        <footer class="footer">
-            <p>&copy;2023 Patrick Swayze's Code House</p>
-        </footer>
+    </main>
 
-        <!-- === Hero Image Ends === -->
+    <section class="columns">
+        <div class="container">
+            <!-- <div class="column is-10 is-offset-1"> -->
+
+        </div>
+    </section>
+
+    <!-- === transparent footer === -->
+    <footer class="footer" id="copy">
+        <p>&copy;2023 Patrick Swayze's Code House</p>
+    </footer>
+
+    <!-- === Hero Image Ends === -->
     </div>
 
     <script src="https://kit.fontawesome.com/0d4d70a297.js" crossorigin="anonymous"></script>

@@ -88,7 +88,7 @@ btnEl.addEventListener('click', (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // displayStars.innerHTML = '';
+      displayStars.innerHTML = '';
       var imageSrc = data.data.imageUrl;
       var imgHolder = document.createElement("img");
       imgHolder.setAttribute("src", imageSrc);
@@ -151,3 +151,31 @@ btnEl.addEventListener('click', (e) => {
 
 //https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
+// button.addEventListener(“click”, function () {
+//   window.location.href = “index.html”;
+// });
+
+
+// async function fetchStarChart() {
+//   try {
+//     const response = await fetch(baseUrlStarChart, {
+//       method: "POST",
+//       body: JSON.stringify(mydatafour),
+//       headers: {
+//         Authorization: `Basic ${hash}`,
+//       },
+//     });
+
+//     const data = await response.json();
+//     displayStars.innerHTML = '';
+//     const imageSrc = data.data.imageUrl;
+//     console.log(imgsrc);
+//     const imgHolder = document.createElement("img");
+//     imgHolder.setAttribute("src", imageSrc);
+//     displayStars.appendChild(imgHolder);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// fetchStarChart();
