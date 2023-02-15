@@ -7,9 +7,15 @@ var dateEL = document.getElementById('meeting-time');
 var errDisplay = document.querySelector('.help');
 var lat;
 var lon;
+// window.addEventListener('load',()=>{
+// var today=dayjs()
+//  dateEL.value=today.format( "dd/mm/yyyy")  
+// })
 var applicationId = "530a1429-db0d-4587-adb1-ded19a7d404d";
 var applicationSecret =
   "b61037a5c464044d27334b3dd0f410339546c8ff10ab50eebcce8b488b5439217224c87383070db4a719e49e54f3788da3c23a76362f4e57458eb7155538ab58154b897ef27bffefd7aa5f592237c3f43327b5a8b4c82efca177e8a995816f78c8da59077974d86e840c98de251e9c07";
+
+
 
 btnEl.addEventListener('click', (e) => {
   e.preventDefault()
@@ -17,6 +23,7 @@ btnEl.addEventListener('click', (e) => {
     errDisplay.textContent = 'City and date requred';
 
   }
+ 
   const hash = btoa(`${applicationId}:${applicationSecret}`);
   var baseurlPositions =
     `https://api.astronomyapi.com/api/v2/bodies/positions?longitude=${parseInt(localStorage.getItem("lon"))}&latitude=${parseInt(localStorage.getItem("lat"))}&elevation=1&from_date=${dateEL.value}&to_date=${dateEL.value}&time=05%3A51%3A49`;
@@ -32,7 +39,10 @@ btnEl.addEventListener('click', (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       var PlanetNames = data.data.table.rows;
+      var declinationNow=localStorage.setItem('declinationNow',  data.data.table.rows[0].cells[0].position.equatorial.declination.degrees)
+      var RightAssNow=localStorage.setItem('RightAssNow', data.data.table.rows[0].cells[0git ].position.equatorial.rightAscension.hours)
       for (let elem of PlanetNames) {
         var listEL = document.createElement("li");
         listEL.textContent = elem.entry.name;
@@ -49,7 +59,7 @@ btnEl.addEventListener('click', (e) => {
   fetch(baseurlNow)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data)
+     
       if (data) {
         localStorage.setItem('lat', data.coord.lat)
         localStorage.setItem('lon', data.coord.lon)
@@ -69,8 +79,8 @@ btnEl.addEventListener('click', (e) => {
       type: 'area', parameters: {
         position: {
           "equatorial": {
-            "rightAscension": 14.83,
-            "declination": -15.23
+            "rightAscension":parseInt(localStorage.getItem('RightAssNow')),
+            "declination":parseInt(localStorage.getItem('declinationNow'))
           }
         }, zoom: 6
       }
