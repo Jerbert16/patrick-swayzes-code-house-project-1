@@ -46,7 +46,7 @@ btnEl.addEventListener('click', (e) => {
       console.log(data)
       var PlanetNames = data.data.table.rows;
       var declinationNow=localStorage.setItem('declinationNow',  data.data.table.rows[0].cells[0].position.equatorial.declination.degrees)
-      var RightAssNow=localStorage.setItem('RightAssNow', data.data.table.rows[0].cells[0git ].position.equatorial.rightAscension.hours)
+      var RightAssNow=localStorage.setItem('RightAssNow', data.data.table.rows[0].cells[0].position.equatorial.rightAscension.hours)
       for (let elem of PlanetNames) {
         var listEL = document.createElement("li");
         listEL.textContent = elem.entry.name;
