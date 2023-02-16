@@ -32,9 +32,8 @@
                     <p class ="mb-5" style="color: whitesmoke">
                     The Everyday Stargazer makes it simple to get a map of the night sky. All you have to do is enter the name of your city, then select the date you wish to go stargazing and voila – you’ll be presented with current weather conditions and a star chart of your local night sky. Ready? Let’s gaze.
                     </p>
-                <!-- Location Input Field -->
-                <form class="box">
-                    <!-- user input 'box' -->
+                    <!-- User input form -->
+                    <form class="box">
                     <div class="field">
                         <label class="label">Center of the Universe:</label>
                         <div class="control">
@@ -44,7 +43,6 @@
 
                         </div>
                     </div>
-                    <!-- Submit Button -->
                     <div class="control">
                         <div class="DatePicker mb-3">
                             <label for="meeting-time">Choose Today's Date:</label>
@@ -52,12 +50,15 @@
             <input type="date" id="meeting-time"
                    name="meeting-time"
                    >
+                                       <!-- Submit Button -->
                         </div>
                         <button id="button" class="button is-link is-rounded mb-3" type="submit" value="Submit input"
                             aria-label="submit">Start Gazing
                         </button>
                     </div>
                     <div class = "columns">
+
+                        <!-- Container for the weather information. -->
                     <div class="theWeather column" id="weatherEl">
                         <div id="current"></div>
                         <img id="weatherIcon" src=""/>
@@ -66,6 +67,7 @@
                         <div id="humidity"></div>
                         <div id="wind"></div>
                         </div>
+                        <!-- Container for the moon phase rendering. -->
                        <div class="moon column">
                         <div class="img-container">
                             <figure id="moon-phase" class="image" aria-label="moon-phase"></figure>
@@ -74,6 +76,7 @@
                     </div>
                 </form>
                 <div class="content" style="color: whitesmoke">
+                    <!-- Container for the star chart rendering. -->
                     <div class="img-container mt-3">
                         <figure id="star-chart" class="image mb-3" aria-label="star-chart"></figure>
                     </div>

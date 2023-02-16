@@ -1,3 +1,4 @@
+// Defining the variables that will be used throughout.
 var displayMoon = document.querySelector("#moon-phase");
 var displayStars = document.querySelector("#star-chart");
 var displayNames = document.querySelector("#planets");
@@ -17,11 +18,13 @@ var lat;
 var lon;
 var apiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
 
+// Setting up the ability to retrieve the key "city" from local storage.
 cityInput.value = localStorage.getItem("city");
 
 function runProgram(e) {
   e.preventDefault();
 
+  // Rendering an error message if the user does not enter both a city and date.
   if (!(cityInput.value && dateEL.value)) {
     errDisplay.textContent = "Both city and date required!";
     setTimeout(() => {
@@ -30,10 +33,12 @@ function runProgram(e) {
     return;
   }
 
+  // Retrieving the value stored under the key "city" from local storage and assigning to the value of the input element "cityInput", allowing the stargazer to change the date without having to re-enter the city.
   localStorage.setItem("city", cityInput.value);
 
   var baseurlNow = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=e741dcb38a3d668e1bd5bc73c1c15c13&units=imperial`;
 
+  // Making a fetch request to the API. Assuming the fetch request is successful, the response transforms into a JSON object, which then renders the images of the star chart and the moon phase along with the current weather.
   fetch(baseurlNow)
     .then((resp) => resp.json())
     .then((data) => {
@@ -43,7 +48,7 @@ function runProgram(e) {
       lat = data.coord.lat;
       lon = data.coord.lon;
 
-      //takes data frome baseurlNow data array and displays weather info - see below:
+      // Taking data from baseurlNow data array to display the current weather information.
       currentWthr.textContent = "Current Weather:";
       weatherIcon.src =
         "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
@@ -53,6 +58,7 @@ function runProgram(e) {
       wind.textContent = "Wind: " + data.wind.speed + " MPH";
     });
 
+  // Star chart image.
   const baseUrlStarChart =
     "https://api.astronomyapi.com/api/v2/studio/star-chart";
 
@@ -93,6 +99,8 @@ function runProgram(e) {
       displayStars.innerHTML = "YOUR CURRENT NIGHT SKY (STAR CHART):";
       displayStars.appendChild(imgHolder);
     });
+
+  // Moon phase image.
   const baseUrlmoonPhase =
     "https://api.astronomyapi.com/api/v2/studio/moon-phase";
   let mydata = {
@@ -135,10 +143,6 @@ var applicationSecret =
   "b61037a5c464044d27334b3dd0f410339546c8ff10ab50eebcce8b488b5439217224c87383070db4a719e49e54f3788da3c23a76362f4e57458eb7155538ab58154b897ef27bffefd7aa5f592237c3f43327b5a8b4c82efca177e8a995816f78c8da59077974d86e840c98de251e9c07";
 var baseurlPositions =
   "https://api.astronomyapi.com/api/v2/bodies/positions?longitude=122.4194&latitude=37.7749&elevation=1&from_date=2023-02-03&to_date=2023-02-03&time=05%3A51%3A49";
-
-// here in baseurl we are looking Planetary Positions endpoint and  Longitude,Latitude,From Date,To Date,and Time are hardcoded we have to find a way a user to enter or get their location
-
-//the other end points are Star Charts,Moon Phase.search
 
 const hash = btoa(`${applicationId}:${applicationSecret}`);
 
