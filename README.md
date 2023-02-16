@@ -2,8 +2,7 @@
 Everyday stargazing made easy for the everyday amateur stargazer. 
 
 ## Description
-Check out our brand new Everyday Stargazer app for closer access to stars near you. All you have to do is give your location (or let the app detect it for you) and then in one click you have an exact map of the stars along with current weather at your fingertips.
-*Location permissions may be required.
+Check out our brand new Everyday Stargazer app for closer access to stars near you. All you have to do is give your location and a desired date, and then in one click you have an exact map of the stars along with current weather at your fingertips.
 
 ## User Story
 AS AN amateur stargazer
@@ -43,5 +42,8 @@ https://github.com/Jerbert16/patrick-swayzes-code-house-project-1
 https://jerbert16.github.io/patrick-swayzes-code-house-project-1/
 
 ## Screen Shot
-Coming soon!
-<!-- *WILL ADD* -->
+### Desktop Viewport
+![Screenshot of stargazer app](./assets/images/desktop-viewport.png)
+
+### Mobile Vierwport
+![Screenshot of stargazer app](./assets/images/mobile-viewport.png)
